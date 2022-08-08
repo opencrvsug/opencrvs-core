@@ -15,9 +15,7 @@ import { storage } from '@client/storage'
 import {
   IDeclaration,
   SUBMISSION_STATUS,
-  IWorkqueue,
-  filterProcessingDeclarationsFromQuery,
-  updateRegistrarWorkqueue
+  filterProcessingDeclarationsFromQuery
 } from '@client/declarations'
 import { IStoreState } from '@opencrvs/client/src/store'
 import { DeclarationIconSmall } from '@opencrvs/components/lib/icons/DeclarationIconSmall'
@@ -52,6 +50,7 @@ import { IOfflineData } from '@client/offline/reducer'
 import { isDeclarationInReadyToReviewStatus } from '@client/utils/draftUtils'
 import { navigationMessages } from '@client/i18n/messages/views/navigation'
 import { UnbuplishedWarning } from '@client/views/SysAdmin/Config/Forms/Home/FormConfigHome'
+import { updateRegistrarWorkqueue, IWorkqueue } from '@client/workqueue'
 
 const SCREEN_LOCK = 'screenLock'
 

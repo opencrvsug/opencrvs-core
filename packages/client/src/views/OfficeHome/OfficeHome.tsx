@@ -12,10 +12,9 @@
 import {
   filterProcessingDeclarationsFromQuery,
   IDeclaration,
-  IWorkqueue,
-  SUBMISSION_STATUS,
-  updateRegistrarWorkqueue
+  SUBMISSION_STATUS
 } from '@client/declarations'
+import { updateRegistrarWorkqueue, IWorkqueue } from '@client/workqueue'
 import { Header } from '@client/components/interface/Header/Header'
 import { messages as certificateMessage } from '@client/i18n/messages/views/certificate'
 import {
