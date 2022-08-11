@@ -30,8 +30,6 @@ import { waitForElement, waitFor } from '@client/tests/wait-for-element'
 import { createClient } from '@client/utils/apolloClient'
 import { REGISTRATION_HOME_QUERY } from '@client/views/OfficeHome/queries'
 import { OfficeHome } from '@client/views/OfficeHome/OfficeHome'
-import { EVENT_STATUS } from '@client/views/OfficeHome/utils'
-import { DeclarationIcon } from '@opencrvs/components/lib/icons'
 import { GridTable } from '@opencrvs/components/lib/interface'
 import ApolloClient from 'apollo-client'
 import { ReactWrapper } from 'enzyme'
@@ -48,7 +46,7 @@ import { formatUrl } from '@client/navigation'
 import { WORKQUEUE_TABS } from '@client/components/interface/Navigation'
 import { birthDeclarationForReview } from '@client/tests/mock-graphql-responses'
 import { vi, Mock } from 'vitest'
-import { te } from 'date-fns/locale'
+import { EVENT_STATUS } from '@client/workqueue'
 
 const registerScopeToken =
   'eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzY29wZSI6WyJyZWdpc3RlciIsImNlcnRpZnkiLCJkZW1vIl0sImlhdCI6MTU0MjY4ODc3MCwiZXhwIjoxNTQzMjkzNTcwLCJhdWQiOlsib3BlbmNydnM6YXV0aC11c2VyIiwib3BlbmNydnM6dXNlci1tZ250LXVzZXIiLCJvcGVuY3J2czpoZWFydGgtdXNlciIsIm9wZW5jcnZzOmdhdGV3YXktdXNlciIsIm9wZW5jcnZzOm5vdGlmaWNhdGlvbi11c2VyIiwib3BlbmNydnM6d29ya2Zsb3ctdXNlciJdLCJpc3MiOiJvcGVuY3J2czphdXRoLXNlcnZpY2UiLCJzdWIiOiI1YmVhYWY2MDg0ZmRjNDc5MTA3ZjI5OGMifQ.ElQd99Lu7WFX3L_0RecU_Q7-WZClztdNpepo7deNHqzro-Cog4WLN7RW3ZS5PuQtMaiOq1tCb-Fm3h7t4l4KDJgvC11OyT7jD6R2s2OleoRVm3Mcw5LPYuUVHt64lR_moex0x_bCqS72iZmjrjS-fNlnWK5zHfYAjF2PWKceMTGk6wnI9N49f6VwwkinJcwJi6ylsjVkylNbutQZO0qTc7HRP-cBfAzNcKD37FqTRNpVSvHdzQSNcs7oiv3kInDN5aNa2536XSd3H-RiKR9hm9eID9bSIJgFIGzkWRd5jnoYxT70G0t03_mTVnDnqPXDtyI-lmerx24Ost0rQLUNIg'
@@ -286,7 +284,6 @@ describe('OfficeHome sent for review tab related tests', () => {
   })
 
   it('renders all items returned from graphql query in ready for review', async () => {
-    const TIME_STAMP = '1544188309380'
     Date.now = vi.fn(() => 1554055200000)
 
     const testComponent = await createTestComponent(
