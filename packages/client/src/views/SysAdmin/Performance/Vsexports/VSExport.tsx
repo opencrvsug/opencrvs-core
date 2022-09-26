@@ -1,12 +1,12 @@
 import React from 'react'
 import { SysAdminContentWrapper } from '@client/views/SysAdmin/SysAdminContentWrapper'
-// import { FormTabs } from '@opencrvs/components/lib/forms'
+import { FormTabs } from '@opencrvs/components/lib/forms'
 import styled from 'styled-components'
 import { useIntl } from 'react-intl'
-import { BodyContent, Content } from '@opencrvs/components/lib/layout'
-// import { Content } from '@opencrvs/components/lib/interface/Content'
+import { BodyContent } from '@opencrvs/components/lib/layout'
+import { Content } from '@opencrvs/components/lib/interface/Content'
 import { messages } from '@client/i18n/messages/views/config'
-// import { ListViewSimplified } from '@opencrvs/components/lib/interface/ListViewSimplified/ListViewSimplified'
+import { ListViewSimplified } from '@opencrvs/components/lib/interface/ListViewSimplified/ListViewSimplified'
 import {
   BirthDelayedRegistrationTarget,
   BirthLateRegistrationPeriod,
@@ -16,8 +16,6 @@ import {
   DeathDelayedRegistrationTarget,
   DeathRegistrationTarget
 } from '@client/views/SysAdmin/Config/Application/Tabs/DeathProperties'
-import { TopAlignedListViewItemSimplified } from '@client/views/Settings/items/components'
-import { StickyFormTabs } from '@client/views/RegisterForm/StickyFormTabs'
 
 const UserTable = styled(BodyContent)`
   padding: 0px;
@@ -35,11 +33,11 @@ export enum TabId {
 function BirthTabContent() {
   return (
     <>
-      <TopAlignedListViewItemSimplified>
+      <ListViewSimplified>
         <BirthRegistrationTarget />
         <BirthLateRegistrationPeriod />
         <BirthDelayedRegistrationTarget />
-      </TopAlignedListViewItemSimplified>
+      </ListViewSimplified>
     </>
   )
 }
@@ -47,10 +45,10 @@ function BirthTabContent() {
 function DeathTabContent() {
   return (
     <>
-      <TopAlignedListViewItemSimplified>
+      <ListViewSimplified>
         <DeathRegistrationTarget />
         <DeathDelayedRegistrationTarget />
-      </TopAlignedListViewItemSimplified>
+      </ListViewSimplified>
     </>
   )
 }
@@ -82,7 +80,7 @@ const VSExport = () => {
             title={intl.formatMessage(messages.vsexport)}
             titleColor={'copy'}
             tabBarContent={
-              <StickyFormTabs
+              <FormTabs
                 sections={tabSections}
                 activeTabId={activeTabId}
                 onTabClick={(id: TabId) => setActiveTabId(id)}
